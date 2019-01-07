@@ -184,42 +184,42 @@ main:
 			# draw [+x, +y]
 			add $a0, $t8, $s0
 			add $a1, $t9, $s1
-			jal set_pixel
+			jal set_pixel_white
 
 			# draw [+y, +x]
 			add $a0, $t8, $s1
 			add $a1, $t9, $s0
-			jal set_pixel
+			jal set_pixel_white
 
 			# draw [-x, +y]
 			sub $a0, $t8, $s0
 			add $a1, $t9, $s1
-			jal set_pixel
+			jal set_pixel_white
 
 			# draw [-y, +x]
 			add $a0, $t8, $s1
 			sub $a1, $t9, $s0
-			jal set_pixel
+			jal set_pixel_white
 
 			# draw [-x, -y]
 			sub $a0, $t8, $s0
 			sub $a1, $t9, $s1
-			jal set_pixel
+			jal set_pixel_white
 
 			# draw [-y, -x]
 			sub $a0, $t8, $s1
 			sub $a1, $t9, $s0
-			jal set_pixel
+			jal set_pixel_white
 
 			# draw [+x, -y]
 			add $a0, $t8, $s0
 			sub $a1, $t9, $s1
-			jal set_pixel
+			jal set_pixel_white
 
 			# draw [+y,-x]
 			sub $a0, $t8, $s1
 			add $a1, $t9, $s0
-			jal set_pixel
+			jal set_pixel_white
 
 			lw $ra, 0($sp)
 			addi $sp, $sp, 4
@@ -278,11 +278,7 @@ main:
 			addi $sp, $sp, 4
 			jr $ra
 
-
-		#####################################################
-
-	#la $a0, pImg
-	set_pixel:
+	set_pixel_white:
 		move $t2, $a0
 		move $t3, $a1
 		mul $t5, $t3, 64
